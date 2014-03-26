@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>abstract-robot-dynamics</name>
+  <version>0.1.0</version>
+  <description>The abstract-robot-dynamics package</description>
+
+  <maintainer email="hilario@todo.todo">hilario</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>sot_cmake</build_depend>
+  <build_depend>jrl-mal</build_depend>
+
+</package>
