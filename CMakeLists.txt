@@ -15,11 +15,13 @@
 # <http://www.gnu.org/licenses/>.
 
 # Requires at least CMake 2.6 to configure the package.
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.3)
 
-INCLUDE(cmake/base.cmake)
-INCLUDE(cmake/boost.cmake)
-INCLUDE(cmake/cpack.cmake)
+find_package(catkin REQUIRED COMPONENTS sot_cmake jrl-mal)
+
+INCLUDE(${SOT_CMAKE_DIR}/base.cmake)
+INCLUDE(${SOT_CMAKE_DIR}/boost.cmake)
+INCLUDE(${SOT_CMAKE_DIR}/cpack.cmake)
 
 SET(PROJECT_NAME abstract-robot-dynamics)
 SET(PROJECT_DESCRIPTION "JRL mathematical tools")
@@ -29,7 +31,6 @@ SET(CUSTOM_HEADER_DIR "${PROJECT_NAME}")
 
 SET(BOOST_COMPONENTS unit_test_framework)
 SEARCH_FOR_BOOST()
-ADD_REQUIRED_DEPENDENCY("jrl-mal >= 1.7.4")
 
 SET(${PROJECT_NAME}_HEADERS
   include/abstract-robot-dynamics/abstract-robot-dynamics.hh
@@ -47,8 +48,8 @@ SET(${PROJECT_NAME}_HEADERS
   )
 
 SETUP_PROJECT()
-
-ADD_SUBDIRECTORY(tests)
+catkin_package(INCLUDE_DIRS include)
+#ADD_SUBDIRECTORY(tests)
 
 SETUP_PROJECT_FINALIZE()
 SETUP_PROJECT_CPACK()
